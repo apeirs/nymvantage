@@ -1,0 +1,30 @@
+direct dial instead of SOCKS5              caught by TestEphemeralVantagesUseDistinctExits, TestFailsClosed, TestGet, TestGetHashesAndCaps, TestNoProxyNoFallback, TestProbeTimeout, TestQuorum, TestSSHFailedTypeIsNoAnswer, TestSSHHashedAdd, TestSSHHostKeysWithoutAuth, TestSSHKnownHosts, TestSSHTypesLeftWhenTimeRunsOut, TestTLSRecordsUntrustedCertificate, TestTLSThroughProxyByName, TestTLSVerdicts
+direct dial when the Nym client is down    caught by TestFailsClosed, TestNoProxyNoFallback, TestQuorum
+User-Agent sent on downloads               caught by TestGet, TestGetHashesAndCaps
+plain-http redirect followed               caught by TestGetHashesAndCaps
+download TLS not verified                  caught by TestGetHashesAndCaps
+no download size cap                       caught by TestGetHashesAndCaps
+certificate trust not checked              caught by TestTLSRecordsUntrustedCertificate, TestTLSVerdicts
+split views ignored                        caught by TestDecide, TestGet, TestSSHKnownHosts, TestTLSVerdicts
+quorum ignored                             caught by TestDecide, TestQuorum
+silent reference counted as a match        caught by TestDecide
+CDN rule without the trust check           caught by TestTLSVerdicts
+--strict ignored                           caught by TestTLSVerdicts
+download saved on an unclean verdict       caught by TestGet
+HTTP error page counted as an answer       caught by TestGet
+--expect ignored                           caught by TestGet
+known_hosts lines on an unclean verdict    caught by TestSSHKnownHosts
+known_hosts not consulted                  caught by TestSSHKnownHosts
+missing key type not counted               caught by TestSSHKnownHosts
+failed handshake counted as a missing key  caught by TestSSHFailedTypeIsNoAnswer
+SSH key types skipped after a timeout look absent caught by TestSSHTypesLeftWhenTimeRunsOut
+no per-vantage timeout                     caught by TestProbeTimeout
+SSH goes on to log in                      caught by TestSSHHostKeysWithoutAuth, TestSSHKnownHosts
+exits not spread over countries            caught by TestPickDistinct
+failed client not replaced                 caught by TestEphemeralReplacesAFailedClient
+Nym client stopped twice                   caught by TestEphemeralVantagesUseDistinctExits
+ephemeral client shares the user's HOME    caught by TestEphemeralIsPrivateAndCleanedUp
+ephemeral identity not deleted             caught by TestEphemeralIsPrivateAndCleanedUp, TestEphemeralStartupFailureCleansUp
+ephemeral client without reply SURBs       caught by TestEphemeralIsPrivateAndCleanedUp
+proxy env passed to the Nym client         caught by TestCleanEnv
+29 of 29 mutations caught

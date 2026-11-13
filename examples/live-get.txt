@@ -1,0 +1,56 @@
+# nymvantage live runs on Nym mainnet, 2026-11-13 08:18 UTC, in an empty working directory
+
+$ nymvantage get https://deb.debian.org/debian/dists/stable/Release --local -o Release
+get https://deb.debian.org/debian/dists/stable/Release: 3 vantage points through the Nym mixnet, each a new Nym client and a different exit gateway, plus your direct connection
+  nym-1    exit node 2846 (GB)        sha256 ed56aac47e7911e6  138612 bytes  [4.0s]
+  nym-2    exit node 2002 (HK)        sha256 ed56aac47e7911e6  138612 bytes  [3.4s]
+  nym-3    exit node 1864 (JP)        sha256 ed56aac47e7911e6  138612 bytes  [5.4s]
+  local    your direct connection     sha256 ed56aac47e7911e6  138612 bytes  [0.0s]
+verdict: MATCH: your direct download matches what 3 of 3 mixnet vantage points saw
+  sha256 ed56aac47e7911e65ee63aae8d67e29f20e023f840e49f8ed037043a33de138a
+saved Release
+[exit 0, 9.7s wall]
+
+$ sha256sum Release
+ed56aac47e7911e65ee63aae8d67e29f20e023f840e49f8ed037043a33de138a  Release
+
+$ nymvantage get https://deb.debian.org/debian/dists/stable/Release --expect ed56aac47e7911e65ee63aae8d67e29f20e023f840e49f8ed037043a33de138a -o Release.2
+get https://deb.debian.org/debian/dists/stable/Release: 3 vantage points through the Nym mixnet, each a new Nym client and a different exit gateway
+  nym-1    exit node 3402 (CA)        sha256 ed56aac47e7911e6  138612 bytes  [3.3s]
+  nym-2    exit node 3130 (NL)        sha256 ed56aac47e7911e6  138612 bytes  [2.9s]
+  nym-3    exit node 2300 (US)        sha256 ed56aac47e7911e6  138612 bytes  [4.6s]
+verdict: MATCH: --expect matches what 3 of 3 mixnet vantage points saw
+  sha256 ed56aac47e7911e65ee63aae8d67e29f20e023f840e49f8ed037043a33de138a
+saved Release.2
+[exit 0, 7.2s wall]
+
+$ nymvantage get https://deb.debian.org/debian/dists/stable/Release --expect 0000000000000000000000000000000000000000000000000000000000000000 -o Release.3
+get https://deb.debian.org/debian/dists/stable/Release: 3 vantage points through the Nym mixnet, each a new Nym client and a different exit gateway
+  nym-1    exit node 3410 (CA)        sha256 ed56aac47e7911e6  138612 bytes  [3.1s]
+  nym-2    exit node 3383 (NL)        sha256 ed56aac47e7911e6  138612 bytes  [3.4s]
+  nym-3    exit node 3432 (FR)        sha256 ed56aac47e7911e6  138612 bytes  [4.1s]
+verdict: MISMATCH: --expect differs from what 3 of 3 mixnet vantage points saw
+  sha256 ed56aac47e7911e65ee63aae8d67e29f20e023f840e49f8ed037043a33de138a
+not saved: the verdict is not clean
+[exit 1, 7.6s wall]
+
+$ ls
+known_hosts
+Release
+Release.2
+stale_known_hosts
+
+$ nymvantage get https://cdn.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc -n 4 -o sha256sums.asc
+get https://cdn.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc: 4 vantage points through the Nym mixnet, each a new Nym client and a different exit gateway
+  nym-1    exit node 2822 (SE)        sha256 d73e0430e544e987  259575 bytes  [4.8s]
+  nym-2    exit node 3179 (IT)        sha256 d73e0430e544e987  259575 bytes  [7.9s]
+  nym-3    exit node 1960 (LV)        sha256 d73e0430e544e987  259575 bytes  [4.3s]
+  nym-4    exit node 2715 (NO)        sha256 d73e0430e544e987  259575 bytes  [3.6s]
+verdict: AGREE: all 4 mixnet vantage points that answered saw the same
+  sha256 d73e0430e544e987b88d0411872d5d107794e2a70d3b900b5dae465157126bc6
+saved sha256sums.asc
+[exit 0, 12.3s wall]
+
+$ nymvantage get http://deb.debian.org/debian/dists/stable/Release
+error: only https:// URLs
+[exit 3, 0.0s wall]

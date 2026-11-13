@@ -1,0 +1,215 @@
+# nymvantage live runs on Nym mainnet, 2026-11-13 08:22 UTC, in an empty working directory
+
+$ nymvantage ssh github.com --local --known-hosts known_hosts
+ssh github.com:22: 3 vantage points through the Nym mixnet, each a new Nym client and a different exit gateway, plus your direct connection
+  nym-1    exit node 2706 (AT)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [6.0s]
+  nym-2    exit node 2712 (ZA)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [7.8s]
+  nym-3    exit node 3121 (NL)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [7.3s]
+  local    your direct connection     nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [1.0s]
+  ecdsa-sha2-nistp256  AGREE SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM: all 3 mixnet vantage points that answered saw the same
+                       local MATCH: your direct connection matches what 3 of 3 mixnet vantage points saw
+  ssh-ed25519          AGREE SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU: all 3 mixnet vantage points that answered saw the same
+                       local MATCH: your direct connection matches what 3 of 3 mixnet vantage points saw
+  ssh-rsa              AGREE SHA256:uNiVztksCsDhcc0u9e8BujQXVUpKZIDTMczCvj3tD2s: all 3 mixnet vantage points that answered saw the same
+                       local MATCH: your direct connection matches what 3 of 3 mixnet vantage points saw
+verdict: MATCH
+known_hosts lines (not in your known_hosts yet; --add appends them):
+  github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+  github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+  github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
+[exit 0, 12.4s wall]
+
+$ nymvantage ssh github.com --known-hosts known_hosts --add
+ssh github.com:22: 3 vantage points through the Nym mixnet, each a new Nym client and a different exit gateway
+  nym-1    exit node 3068 (DK)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [6.4s]
+  nym-2    exit node 2393 (AT)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [5.5s]
+  nym-3    exit node 2938 (JP)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [5.9s]
+  ecdsa-sha2-nistp256  AGREE SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM: all 3 mixnet vantage points that answered saw the same
+  ssh-ed25519          AGREE SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU: all 3 mixnet vantage points that answered saw the same
+  ssh-rsa              AGREE SHA256:uNiVztksCsDhcc0u9e8BujQXVUpKZIDTMczCvj3tD2s: all 3 mixnet vantage points that answered saw the same
+verdict: AGREE
+added 3 line(s) to known_hosts
+[exit 0, 9.2s wall]
+
+$ ssh-keygen -l -f known_hosts
+256 SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM github.com (ECDSA)
+256 SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU github.com (ED25519)
+3072 SHA256:uNiVztksCsDhcc0u9e8BujQXVUpKZIDTMczCvj3tD2s github.com (RSA)
+
+$ nymvantage ssh github.com --known-hosts known_hosts
+ssh github.com:22: 3 vantage points through the Nym mixnet, each a new Nym client and a different exit gateway
+  nym-1    exit node 2062 (EE)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [10.6s]
+  nym-2    exit node 3141 (US)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [9.5s]
+  nym-3    exit node 1698 (JP)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [13.0s]
+  ecdsa-sha2-nistp256  AGREE SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM: all 3 mixnet vantage points that answered saw the same
+                       known_hosts MATCH: your known_hosts matches what 3 of 3 mixnet vantage points saw
+  ssh-ed25519          AGREE SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU: all 3 mixnet vantage points that answered saw the same
+                       known_hosts MATCH: your known_hosts matches what 3 of 3 mixnet vantage points saw
+  ssh-rsa              AGREE SHA256:uNiVztksCsDhcc0u9e8BujQXVUpKZIDTMczCvj3tD2s: all 3 mixnet vantage points that answered saw the same
+                       known_hosts MATCH: your known_hosts matches what 3 of 3 mixnet vantage points saw
+verdict: MATCH
+[exit 0, 16.9s wall]
+
+$ nymvantage ssh gitlab.com --known-hosts /dev/null --json
+{
+  "target": "gitlab.com:22",
+  "views": [
+    {
+      "vantage": "nym-1",
+      "via": "exit node 2414 (NE)",
+      "view": {
+        "banner": "SSH-2.0-GitLab-SSHD",
+        "keys": {
+          "ecdsa-sha2-nistp256": {
+            "type": "ecdsa-sha2-nistp256",
+            "fingerprint": "SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw",
+            "public_key": "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY="
+          },
+          "ssh-ed25519": {
+            "type": "ssh-ed25519",
+            "fingerprint": "SHA256:eUXGGm1YGsMAS7vkcx6JOJdOGHPem5gQp4taiCfCLB8",
+            "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf"
+          },
+          "ssh-rsa": {
+            "type": "ssh-rsa",
+            "fingerprint": "SHA256:ROQFvPThGrW4RuWLoL9tq9I9zJ42fK4XywyRtbOz/EQ",
+            "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9"
+          }
+        },
+        "seconds": 7.86632269
+      }
+    },
+    {
+      "vantage": "nym-2",
+      "via": "exit node 933 (US)",
+      "view": {
+        "banner": "SSH-2.0-GitLab-SSHD",
+        "keys": {
+          "ecdsa-sha2-nistp256": {
+            "type": "ecdsa-sha2-nistp256",
+            "fingerprint": "SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw",
+            "public_key": "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY="
+          },
+          "ssh-ed25519": {
+            "type": "ssh-ed25519",
+            "fingerprint": "SHA256:eUXGGm1YGsMAS7vkcx6JOJdOGHPem5gQp4taiCfCLB8",
+            "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf"
+          },
+          "ssh-rsa": {
+            "type": "ssh-rsa",
+            "fingerprint": "SHA256:ROQFvPThGrW4RuWLoL9tq9I9zJ42fK4XywyRtbOz/EQ",
+            "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9"
+          }
+        },
+        "seconds": 4.654946313
+      }
+    },
+    {
+      "vantage": "nym-3",
+      "via": "exit node 2328 (AE)",
+      "view": {
+        "banner": "SSH-2.0-GitLab-SSHD",
+        "keys": {
+          "ecdsa-sha2-nistp256": {
+            "type": "ecdsa-sha2-nistp256",
+            "fingerprint": "SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw",
+            "public_key": "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY="
+          },
+          "ssh-ed25519": {
+            "type": "ssh-ed25519",
+            "fingerprint": "SHA256:eUXGGm1YGsMAS7vkcx6JOJdOGHPem5gQp4taiCfCLB8",
+            "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf"
+          },
+          "ssh-rsa": {
+            "type": "ssh-rsa",
+            "fingerprint": "SHA256:ROQFvPThGrW4RuWLoL9tq9I9zJ42fK4XywyRtbOz/EQ",
+            "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9"
+          }
+        },
+        "seconds": 7.223564321
+      }
+    }
+  ],
+  "types": {
+    "ecdsa-sha2-nistp256": {
+      "fingerprint": "SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw",
+      "mixnet": {
+        "verdict": "AGREE",
+        "agreed": "SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw",
+        "answered": 3,
+        "asked": 3,
+        "groups": {
+          "SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw": [
+            "nym-1",
+            "nym-2",
+            "nym-3"
+          ]
+        },
+        "reason": "all 3 mixnet vantage points that answered saw the same"
+      },
+      "verdict": "AGREE"
+    },
+    "ssh-ed25519": {
+      "fingerprint": "SHA256:eUXGGm1YGsMAS7vkcx6JOJdOGHPem5gQp4taiCfCLB8",
+      "mixnet": {
+        "verdict": "AGREE",
+        "agreed": "SHA256:eUXGGm1YGsMAS7vkcx6JOJdOGHPem5gQp4taiCfCLB8",
+        "answered": 3,
+        "asked": 3,
+        "groups": {
+          "SHA256:eUXGGm1YGsMAS7vkcx6JOJdOGHPem5gQp4taiCfCLB8": [
+            "nym-1",
+            "nym-2",
+            "nym-3"
+          ]
+        },
+        "reason": "all 3 mixnet vantage points that answered saw the same"
+      },
+      "verdict": "AGREE"
+    },
+    "ssh-rsa": {
+      "fingerprint": "SHA256:ROQFvPThGrW4RuWLoL9tq9I9zJ42fK4XywyRtbOz/EQ",
+      "mixnet": {
+        "verdict": "AGREE",
+        "agreed": "SHA256:ROQFvPThGrW4RuWLoL9tq9I9zJ42fK4XywyRtbOz/EQ",
+        "answered": 3,
+        "asked": 3,
+        "groups": {
+          "SHA256:ROQFvPThGrW4RuWLoL9tq9I9zJ42fK4XywyRtbOz/EQ": [
+            "nym-1",
+            "nym-2",
+            "nym-3"
+          ]
+        },
+        "reason": "all 3 mixnet vantage points that answered saw the same"
+      },
+      "verdict": "AGREE"
+    }
+  },
+  "verdict": "AGREE",
+  "known_hosts_file": "/dev/null",
+  "known_hosts_lines": [
+    "gitlab.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY=",
+    "gitlab.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf",
+    "gitlab.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9"
+  ]
+}
+[exit 0, 10.3s wall]
+
+$ echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf" > stale_known_hosts   # github.com with another server's key
+
+$ nymvantage ssh github.com --known-hosts stale_known_hosts --add
+ssh github.com:22: 3 vantage points through the Nym mixnet, each a new Nym client and a different exit gateway
+  nym-1    exit node 2842 (AL)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [5.0s]
+  nym-2    exit node 2432 (AR)        nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [9.3s]
+  nym-3    exit node 1690 (?)         nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [6.1s]
+  ecdsa-sha2-nistp256  AGREE SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM: all 3 mixnet vantage points that answered saw the same
+  ssh-ed25519          AGREE SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU: all 3 mixnet vantage points that answered saw the same
+                       known_hosts MISMATCH: your known_hosts (stale_known_hosts:1) differs from what 3 of 3 mixnet vantage points saw
+  ssh-rsa              AGREE SHA256:uNiVztksCsDhcc0u9e8BujQXVUpKZIDTMczCvj3tD2s: all 3 mixnet vantage points that answered saw the same
+verdict: MISMATCH
+--add: nothing written, the verdict is not clean
+[exit 1, 19.1s wall]
+
+$ cat stale_known_hosts   # --add did not touch it
+github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf

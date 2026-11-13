@@ -1,0 +1,67 @@
+# examples/netns-check.sh on Nym mainnet, 2026-11-13 08:25 UTC
+$ examples/netns-check.sh ../bin/nymvantage
+== on the host: nymvantage clients -n 3
+     nym-1  127.0.0.1:35261       exit node 1690 (?), ready in 2.3s
+     nym-2  127.0.0.1:33931       exit node 2762 (IN), ready in 2.8s
+     nym-3  127.0.0.1:35723       exit node 3081 (AU), ready in 2.6s
+   3 Nym client(s) running; Ctrl-C stops them and deletes their identities. Use them with:
+
+== inside: this namespace has no route out
+   lo               UNKNOWN        127.0.0.1/8 ::1/128 
+   curl: (7) Failed to connect to 1.1.1.1:443 after 0 ms: Could not connect to server
+   local DNS: no answer
+
+== nymvantage tls torproject.org --proxy 127.0.0.1:1081 --proxy 127.0.0.1:1082 --proxy 127.0.0.1:1083
+   tls torproject.org:443 (SNI torproject.org): 3 vantage point(s) through Nym clients you run (nymvantage cannot check that they use different exits)
+     proxy-1  Nym client 127.0.0.1:1081  cert 74b1b6600d3433c0  key 1599b2352ee91049  issuer "YR2"  until 2026-12-22  trusted  [1.1s]
+     proxy-2  Nym client 127.0.0.1:1082  cert 74b1b6600d3433c0  key 1599b2352ee91049  issuer "YR2"  until 2026-12-22  trusted  [1.6s]
+     proxy-3  Nym client 127.0.0.1:1083  cert 74b1b6600d3433c0  key 1599b2352ee91049  issuer "YR2"  until 2026-12-22  trusted  [1.6s]
+   verdict: AGREE (compared by certificate): all 3 mixnet vantage points that answered saw the same
+   [exit 0]
+
+== nymvantage ssh github.com --known-hosts  --proxy 127.0.0.1:1081 --proxy 127.0.0.1:1082 --proxy 127.0.0.1:1083
+   ssh github.com:22: 3 vantage point(s) through Nym clients you run (nymvantage cannot check that they use different exits)
+     proxy-1  Nym client 127.0.0.1:1081  nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [8.2s]
+     proxy-2  Nym client 127.0.0.1:1082  nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [6.1s]
+     proxy-3  Nym client 127.0.0.1:1083  nistp256 SHA256:p2QAMXNIC1TJYWeI…  ed25519 SHA256:+DiY3wvvV6TuJJhb…  rsa SHA256:uNiVztksCsDhcc0u…  "SSH-2.0-5a55ed12" [9.0s]
+     ecdsa-sha2-nistp256  AGREE SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM: all 3 mixnet vantage points that answered saw the same
+     ssh-ed25519          AGREE SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU: all 3 mixnet vantage points that answered saw the same
+     ssh-rsa              AGREE SHA256:uNiVztksCsDhcc0u9e8BujQXVUpKZIDTMczCvj3tD2s: all 3 mixnet vantage points that answered saw the same
+   verdict: AGREE
+   known_hosts lines (not in your known_hosts yet; --add appends them):
+     github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+     github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+     github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
+   [exit 0]
+
+== nymvantage get https://deb.debian.org/debian/dists/stable/Release --proxy 127.0.0.1:1081 --proxy 127.0.0.1:1082 --proxy 127.0.0.1:1083
+   get https://deb.debian.org/debian/dists/stable/Release: 3 vantage point(s) through Nym clients you run (nymvantage cannot check that they use different exits)
+     proxy-1  Nym client 127.0.0.1:1081  sha256 ed56aac47e7911e6  138612 bytes  [1.9s]
+     proxy-2  Nym client 127.0.0.1:1082  sha256 ed56aac47e7911e6  138612 bytes  [3.9s]
+     proxy-3  Nym client 127.0.0.1:1083  sha256 ed56aac47e7911e6  138612 bytes  [3.4s]
+   verdict: AGREE: all 3 mixnet vantage points that answered saw the same
+     sha256 ed56aac47e7911e65ee63aae8d67e29f20e023f840e49f8ed037043a33de138a
+   [exit 0]
+
+== --local in here: your own connection has no route, so there is nothing to compare with;
+   that is INCONCLUSIVE, never replaced by a mixnet answer
+
+== nymvantage tls torproject.org --local --proxy 127.0.0.1:1081 --proxy 127.0.0.1:1082 --proxy 127.0.0.1:1083
+   tls torproject.org:443 (SNI torproject.org): 3 vantage point(s) through Nym clients you run (nymvantage cannot check that they use different exits), plus your direct connection
+     proxy-1  Nym client 127.0.0.1:1081  cert 74b1b6600d3433c0  key 1599b2352ee91049  issuer "YR2"  until 2026-12-22  trusted  [1.4s]
+     proxy-2  Nym client 127.0.0.1:1082  cert 74b1b6600d3433c0  key 1599b2352ee91049  issuer "YR2"  until 2026-12-22  trusted  [2.6s]
+     proxy-3  Nym client 127.0.0.1:1083  cert 74b1b6600d3433c0  key 1599b2352ee91049  issuer "YR2"  until 2026-12-22  trusted  [2.8s]
+     local    your direct connection     no answer: dial tcp: lookup torproject.org: Temporary failure in name resolution
+   verdict: INCONCLUSIVE (compared by certificate): the mixnet vantage points agree (3 of 3), but your direct connection gave no answer: dial tcp: lookup torproject.org: Temporary failure in name resolution
+   [exit 2]
+
+== the Nym clients gone (nothing listens on these ports): no fallback, it just fails
+
+== nymvantage tls torproject.org --proxy 127.0.0.1:1 --proxy 127.0.0.1:2 --proxy 127.0.0.1:3
+   tls torproject.org:443 (SNI torproject.org): 3 vantage point(s) through Nym clients you run (nymvantage cannot check that they use different exits)
+     proxy-1  Nym client 127.0.0.1:1     no answer: no SOCKS5 proxy (nym-socks5-client) listening; refusing to fall back to a direct connection (127.0.0.1:1: dial tcp 127.0.0.1:1: connect: connection refused)
+     proxy-2  Nym client 127.0.0.1:2     no answer: no SOCKS5 proxy (nym-socks5-client) listening; refusing to fall back to a direct connection (127.0.0.1:2: dial tcp 127.0.0.1:2: connect: connection refused)
+     proxy-3  Nym client 127.0.0.1:3     no answer: no SOCKS5 proxy (nym-socks5-client) listening; refusing to fall back to a direct connection (127.0.0.1:3: dial tcp 127.0.0.1:3: connect: connection refused)
+   verdict: INCONCLUSIVE (compared by certificate): only 0 of 3 mixnet vantage points answered; 2 needed
+   [exit 2]
+[script exit 0]
